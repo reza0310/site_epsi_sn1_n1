@@ -1,4 +1,4 @@
-<<section>
+<section>
   <h1>ouverture ticket :</h1>
 
   <form action="http://localhost/my-app/ouverture_ticket/confirmation/index.php" method="post">
@@ -24,8 +24,20 @@
  
     <div class="formulaire">
       <label for="type">type de problème :</label>
-      <input type="text" id="type" name="type">
+        <input type="radio" id="Plomberie" name="drone" value="Plomberie" checked>
+  	<label for="huey">Plomberie</label>
+	
+
+	
+  <input type="radio" id="Informatique" name="drone" value="Informatique">
+  <label for="dewey">Informatique</label>
+	
+
+	
+  <input type="radio" id="Mobilier" name="drone" value="Mobilier">
+  <label for="louie">Mobilier</label>
     </div>
+    
     <div class="formulaire">
       <label for="sujet">sujet :</label>
       <input type="text" id="sujet" name="sujet">
