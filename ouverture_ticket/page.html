@@ -1,45 +1,70 @@
-<<section>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ouverture</title>
+  <style type="text/css">
+  h1 {
+    border: 5px solid #000;
+    display: inline-block
+  }
+    body{
+      text-align: center;
+      ;
+    }
+    input {
+      display: block;
+    }
+    label {
+      display: block;
+    }
+    
+    #textes {
+      text-align: initial;
+      position: relative;
+      left: 2em;
+    }
+    
+    #valeurs {
+      position: relative;
+      top: -9em;
+      left: 10em;
+    }
+
+  </style>
+</head>
+<body>
+
+</body>
+</html>
+<section>
   <class>
+
+
+
     <h1>ouverture ticket :</h1>
 
     <form action="http://localhost/my-app/ouverture_ticket/confirmation/index.php" method="post">
-  
-      <div class="formulaire">
-        <label for="salle">salle : </label>
-        <input type="text" name="salle" id="salle" required>
-      </div>
-  
-      <div class="formulaire">
-        <label for="nom">nom :</label>
-        <input type="text" id="nom" name="nom">
-      </div>
- 
-      <div class="formulaire">
-        <label for="prenom">prénom :</label>
-        <input type="text" id="prenom" name="prenom">
-      </div>
-      <div class="formulaire">
-        <label for="email">email :</label>
-        <input type="text" id="email" name="email">
-      </div>
- 
-      <div class="formulaire">
-        <label for="type">type de problème :</label>
-        <input type="text" id="type" name="type">
-      </div>
-      <div class="formulaire">
-        <label for="sujet">sujet :</label>
-        <input type="text" id="sujet" name="sujet">
-      </div>
-      <div class="formulaire">
-        <label for="description">description :</label>
-        <textarea type="text" id="description" name="description" rows="10" cols="30"></textarea>
-      </div>
-
-      <div class="formulaire">
- 	      <input type="submit" value="Confirmer">
-
-      </div>
+    <div id="textes">
+      <label for="salle">salle : </label>
+      <label for="nom">nom :</label>
+      <label for="prenom">prénom :</label>
+      <label for="email">email :</label>
+      <label for="type">type de problème :</label>
+      <label for="sujet">sujet :</label>
+      <label for="description">description :</label>
+    </div>
+    <div id="valeurs"> 
+      <input type="text" name="salle" id="salle" required>
+      <input type="text" id="nom" name="nom">
+      <input type="text" id="prenom" name="prenom">
+      <input type="text" id="email" name="email">
+      <input type="text" id="type" name="type">
+      <input type="text" id="sujet" name="sujet">
+      <input type="text" id="description" name="description" rows="10" cols="30"></input>
+       <input type="submit" value="Confirmer">
+    </div>
+        
     </form>
   </class>
 </section>
