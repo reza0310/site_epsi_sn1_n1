@@ -19,15 +19,13 @@ if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "INSERT INTO tickets (salle, nom, prenom, email, sujet, type, description) VALUES (\"".$salle."\", 
-\"".$nom."\",
-\"".$prenom."\",
-\"".$email."\",
-\"".$sujet."\",
-\"".$type."\",
-\"".$description."\")";
-
-echo ($sql);
+$sql = 'INSERT INTO tickets (salle, nom, prenom, email, sujet, type, description, statut) VALUES ("'.$salle.'", 
+"'.$nom.'",
+"'.$prenom.'",
+"'.$email.'",
+"'.$sujet.'",
+"'.$type.'",
+"'.$description.'", "OUVERT")';
 
 if ($conn->query($sql) === TRUE) {
 	set_include_path($_SERVER['DOCUMENT_ROOT']."projet_site");
