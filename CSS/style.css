@@ -34,3 +34,82 @@ h4 {
 	border: 5px solid black;
 	margin: 1em 0px;
 }
+
+h1 {
+	border: 5px solid #000;
+	display: inline-block;
+}
+
+body {
+  text-align: center;
+}
+
+input {
+  display: block;
+}
+
+label {
+  display: block;
+}
+
+#textes {
+  text-align: initial;
+  position: relative;
+  left: 2em;
+}
+
+#valeurs {
+  position: relative;
+  top: -9em;
+  left: 10em;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #bfeff5;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: #7babb1;
+  color: #000;
+}
+
+.active:hover {
+  background-color: #7babb1;
+  color: #000;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #bfeff5;
+}
+
+.credit {
+	position: fixed;
+	bottom: 0;
+	left: 35%;
+}
