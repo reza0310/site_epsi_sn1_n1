@@ -20,7 +20,8 @@ prenom VARCHAR(50) NOT NULL,
 email VARCHAR(50),
 sujet VARCHAR(30) NOT NULL,
 type enum('EAU','GAZ','PROJECTEUR'),
-description VARCHAR(500)
+description VARCHAR(500),
+statut enum('OUVERT','EN COURS','TERMINE')
 )";
 if ($conn->query($sql) === TRUE) {
   echo "Success";
