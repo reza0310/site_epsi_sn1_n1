@@ -27,6 +27,7 @@ if ($pseudo == "Technicien" && $mdp == "324JGI") {
 		$page .= "Problème de: ".$colonne[6]."<br>";
 		$page .= "Intitulé: ".$colonne[5]."<br>";
 		$page .= "Problème développé: ".$colonne[7]."<br>";
+		$page .= "Statut: ".$colonne[8]."<br>";
 		$page .= "</div>";
 	}
 	echo(str_replace("%php%", $page, file_get_contents("header.html", true)));
