@@ -14,7 +14,7 @@ if ($pseudo == "Technicien" && $mdp == "324JGI") {
 	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	  exit();
 	}
-	$sql = "SELECT * FROM tickets";
+	$sql = "SELECT * FROM tickets WHERE NOT statut='TERMINE'";
 	$result = mysqli_query($con,$sql);
 	
 	echo ("Bienvenue technicien!<br>"); 
@@ -28,8 +28,14 @@ if ($pseudo == "Technicien" && $mdp == "324JGI") {
 		$page .= "Intitulé: ".$colonne[5]."<br>";
 		$page .= "Problème développé: ".$colonne[7]."<br>";
 		$page .= "Statut: ".$colonne[8]."<br>";
+		if ($colonne[8] == "OUVERT") {
+			$page .= "<form method='post' action='changer.php'><input name='ticket' type='hidden' value='".$colonne[0]."'><input name='statut' type='hidden' value='EN COURS'><input type='submit' value=\"S'en occuper\"></form>";
+		} else if ($colonne[8] == "EN COURS") {
+			$page .= "<form method='post' action='changer.php'><input name='ticket' type='hidden' value='".$colonne[0]."'><input name='statut' type='hidden' value='TERMINE'><input type='submit' value='Clore'></form>";
+		}
 		$page .= "</div>";
 	}
+	$page .= "<form method='post' action='/projet_site/connexion/archives/index.php'><input name='pseudo' type='hidden' value='Technicien'><input name='password' type='hidden' value='324JGI'><input type='submit' value='Aller aux archives'></form>";
 	echo(str_replace("%php%", $page, file_get_contents("header.html", true)));
 	mysqli_close($con);
 } else {
