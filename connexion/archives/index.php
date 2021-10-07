@@ -1,5 +1,5 @@
 <?php
-set_include_path($_SERVER['DOCUMENT_ROOT']."projet_site");
+set_include_path($_SERVER['DOCUMENT_ROOT']."/projet_site");
 $pseudo = $_POST["pseudo"];
 $mdp = $_POST["password"];
 if ($pseudo == "Technicien" && $mdp == "324JGI") {

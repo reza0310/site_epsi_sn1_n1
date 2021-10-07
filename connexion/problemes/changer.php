@@ -1,5 +1,5 @@
 <?php
-set_include_path($_SERVER['DOCUMENT_ROOT']."projet_site");
+set_include_path($_SERVER['DOCUMENT_ROOT']."/projet_site");
 include 'mdp.php';
 
 $id = $_POST["ticket"];
