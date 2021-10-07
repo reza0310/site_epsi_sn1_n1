@@ -20,6 +20,6 @@ $page = "";
 $page .= "Votre changement a bien été pris en compte!";
 $page .= "<form method='post' action='index.php'><input name='pseudo' type='hidden' value='Technicien'><input name='password' type='hidden' value='324JGI'><input type='submit' value='Retour'></form>";
 
-echo(str_replace("%php%", $page, file_get_contents("header.html", true)));
+echo(str_replace("dos", "active", str_replace("%php%", $page, file_get_contents("header.html", true))));
 mysqli_close($con);
 ?>

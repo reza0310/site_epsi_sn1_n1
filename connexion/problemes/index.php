@@ -36,7 +36,7 @@ if ($pseudo == "Technicien" && $mdp == "324JGI") {
 		$page .= "</div>";
 	}
 	$page .= "<form method='post' action='/projet_site/connexion/archives/index.php'><input name='pseudo' type='hidden' value='Technicien'><input name='password' type='hidden' value='324JGI'><input type='submit' value='Aller aux archives'></form>";
-	echo(str_replace("%php%", $page, file_get_contents("header.html", true)));
+	echo(str_replace("dos", "active", str_replace("%php%", $page, file_get_contents("header.html", true))));
 	mysqli_close($con);
 } else {
 	header( "Location: /projet_site" );
