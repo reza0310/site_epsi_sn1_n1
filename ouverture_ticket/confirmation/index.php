@@ -1,8 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$db = "site1database";
+set_include_path($_SERVER['DOCUMENT_ROOT']."projet_site");
+include 'mdp.php';
 
 $salle = $_POST["salle"];
 $nom = $_POST["nom"];

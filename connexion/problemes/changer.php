@@ -1,9 +1,6 @@
 <?php
 set_include_path($_SERVER['DOCUMENT_ROOT']."projet_site");
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$db = "site1database";
+include 'mdp.php';
 
 $id = $_POST["ticket"];
 $statut = $_POST["statut"];

@@ -1,7 +1,6 @@
  <?php
-$servername = "localhost";
-$username = "root";
-$password = "root";
+set_include_path($_SERVER['DOCUMENT_ROOT']."projet_site");
+include 'mdp.php';
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);

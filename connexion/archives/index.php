@@ -3,11 +3,7 @@ set_include_path($_SERVER['DOCUMENT_ROOT']."projet_site");
 $pseudo = $_POST["pseudo"];
 $mdp = $_POST["password"];
 if ($pseudo == "Technicien" && $mdp == "324JGI") {
-	
-	$servername = "localhost";
-	$username = "root";
-	$password = "root";
-	$db = "site1database";
+	include 'mdp.php';
 	
 	$con=mysqli_connect($servername,$username,$password,$db);
 	if (mysqli_connect_errno()) {
