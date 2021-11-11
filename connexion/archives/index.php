@@ -24,7 +24,7 @@ if (password_verify($_SESSION["password"], "$2y$10\$jhPhoMionbSvkR7JyAGZrOH1nrmI
 		$page .= "Statut: ".$colonne[8]."<br>";
 		$page .= "</div>";
 	}
-	$page .= "<form method='post' action='/projet_site/connexion/problemes/index.php'><input name='pseudo' type='hidden' value='Technicien'>>input type='submit' value='Retourner aux tickets'></form>";
+	$page .= "<form method='post' action='/projet_site/connexion/problemes/index.php'><input name='pseudo' type='hidden' value='Technicien'><input type='submit' value='Retourner aux tickets'></form>";
 	echo(str_replace("dos", "active", str_replace("%php%", $page, file_get_contents("header.html", true))));
 	mysqli_close($con);
 } else {
