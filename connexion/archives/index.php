@@ -1,8 +1,6 @@
 <?php
 set_include_path($_SERVER['DOCUMENT_ROOT']."/projet_site");
-$pseudo = $_POST["pseudo"];
-$mdp = $_POST["password"];
-if ($pseudo == "Technicien" && $mdp == "324JGI") {
+if (password_verify($_SESSION["password"], "$2y$10\$jhPhoMionbSvkR7JyAGZrOH1nrmIXJO/l.NuBq5yfYi2GOaXzC5WW")) {
 	include 'mdp.php';
 	
 	$con=mysqli_connect($servername,$username,$password,$dbname);
@@ -26,7 +24,7 @@ if ($pseudo == "Technicien" && $mdp == "324JGI") {
 		$page .= "Statut: ".$colonne[8]."<br>";
 		$page .= "</div>";
 	}
-	$page .= "<form method='post' action='/projet_site/connexion/problemes/index.php'><input name='pseudo' type='hidden' value='Technicien'><input name='password' type='hidden' value='324JGI'><input type='submit' value='Retourner aux tickets'></form>";
+	$page .= "<form method='post' action='/projet_site/connexion/problemes/index.php'><input name='pseudo' type='hidden' value='Technicien'>>input type='submit' value='Retourner aux tickets'></form>";
 	echo(str_replace("dos", "active", str_replace("%php%", $page, file_get_contents("header.html", true))));
 	mysqli_close($con);
 } else {
