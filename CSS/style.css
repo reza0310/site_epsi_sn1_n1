@@ -1,3 +1,105 @@
+.active {
+  background-color: #7babb1;
+  color: #000;
+}
+
+.active:hover {
+  background-color: #7babb1;
+}
+
+.credit {
+	position: fixed;
+	bottom: 0;
+	margin: auto;
+	width: 100%;
+}
+
+.ticket {
+	border: 5px solid black;
+	margin: 1em 0px;
+}
+
+.contacts {
+	margin-left: auto;
+    margin-right: auto;
+    width: 20em;
+    font-size: xx-large;
+    margin-top: 50px;
+}
+
+.login {
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.pass{
+    font-size: 30px;
+    margin-top: 25px;
+}
+
+.co{
+    margin-top: 40px;
+}
+
+.image1 {
+	position: fixed;
+	top: 30%;
+	left: 80%;
+	height: 50%;
+}
+
+.image2 {
+	position: fixed;
+	top: 20%;
+	right: 80%;
+	height: 50%;
+}
+
+.contacte {
+	position: fixed;
+	top: 45%;
+	left: 35%;
+	display: inline-block;
+	font-size: 3em;
+	color: black;
+	text-decoration: none;
+	border: 10px solid black;
+}
+
+#textes {
+  text-align: initial;
+  position: relative;
+  left: 2em;
+}
+
+#valeurs {
+  position: relative;
+  top: -9em;
+  left: 10em;
+}
+
+input[type=text], input[type=password] {
+  width: 48em;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid gray;
+  border-radius: 4px;
+}
+
+input[type=button], input[type=submit] {
+  background-color: #4CAF50;
+  border: none;
+  padding: 16px 32px;
+  text-decoration: none;
+  cursor: pointer;
+  position: inherit;
+}
+
+input {
+  display: block;
+  margin: 0 auto;
+}
+
 button {
 	width: 500px;
 	height: 75px;
@@ -6,6 +108,17 @@ button {
 	font-size: 30px;
 	margin-top: 10px;
 	background-color: #bfeff5;
+}
+
+label {
+  display: block;
+}
+
+h1 {
+    border: 3px solid #000;
+    display: inline-block;
+	font-size: 40px;
+	padding: 20px;
 }
 
 h2 {
@@ -17,25 +130,12 @@ h2 {
 	text-align: center;
 }
 
-p {
-	font-size: 25px;
-}
-
 h4 {
 	text-decoration: underline;
 }
 
-h1 {
-	border: 5px solid #000;
-	display: inline-block;
-}
-
-input {
-  display: block;
-}
-
-label {
-  display: block;
+p {
+	font-size: 25px;
 }
 
 ul {
@@ -75,37 +175,4 @@ li a {
 /* Change the link color to #111 (black) on hover */
 li a:hover {
   background-color: #111;
-}
-
-.active {
-  background-color: #7babb1;
-  color: #000;
-}
-
-.active:hover {
-  background-color: #7babb1;
-  color: #000;
-}
-
-.credit {
-	position: fixed;
-	bottom: 0;
-	left: 35%;
-}
-
-.ticket {
-	border: 5px solid black;
-	margin: 1em 0px;
-}
-
-#textes {
-  text-align: initial;
-  position: relative;
-  left: 2em;
-}
-
-#valeurs {
-  position: relative;
-  top: -9em;
-  left: 10em;
 }
