@@ -1,5 +1,6 @@
 <?php
 set_include_path($_SERVER['DOCUMENT_ROOT']."/projet_site");
+session_start();
 if (password_verify($_SESSION["password"], "$2y$10\$jhPhoMionbSvkR7JyAGZrOH1nrmIXJO/l.NuBq5yfYi2GOaXzC5WW")) {
 	include 'mdp.php';
 	
