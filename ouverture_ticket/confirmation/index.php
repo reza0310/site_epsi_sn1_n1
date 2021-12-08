@@ -1,5 +1,10 @@
 <?php
-set_include_path($_SERVER['DOCUMENT_ROOT']."/projet_site");
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+set_include_path($_SERVER['DOCUMENT_ROOT'].'/projet_site');
 include 'mdp.php';
 
 $salle = $_POST["salle"];
@@ -40,16 +45,25 @@ if ($result == null) {
 }
 
 // Ticket
-$sql = 'INSERT INTO tickets (salle, nom, prenom, email, sujet, type, description, statut) VALUES ("'.$salle.'", 
+$today = getdate();
+$date = $today["year"]."-".$today["mon"]."-".$today["mday"];
+$sql = 'INSERT INTO tickets (salle, nom, prenom, email, sujet, type, description, statut, date_debut) VALUES ("'.$salle.'", 
 "'.$nom.'",
 "'.$prenom.'",
 "'.$email.'",
 "'.$sujet.'",
 "'.$type.'",
-"'.$description.'", "OUVERT")';
+"'.$description.'", 
+"OUVERT",
+"'.$date.'")';
+
+$headers = array(
+	'From' => 'ouverture@odaame.org',
+	'X-Mailer' => 'PHP/' . phpversion()
+);
+mail($email, "Ouverture de ticket", "Bonjour! Nous confirmons la bonne réception de votre ticket. Cordialement, PHP.", $headers);
 
 if ($conn->query($sql) === TRUE) {
-	set_include_path($_SERVER['DOCUMENT_ROOT']."projet_site");
 	echo(str_replace("quatro", "active", str_replace("%php%", file_get_contents("page.html"), file_get_contents("header.html", true))));
 } else {
 	echo "Request error: " . $conn->error;

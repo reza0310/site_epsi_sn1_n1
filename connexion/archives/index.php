@@ -23,6 +23,8 @@ if (password_verify($_SESSION["password"], "$2y$10\$jhPhoMionbSvkR7JyAGZrOH1nrmI
 		$page .= "Intitulé: ".$colonne[5]."<br>";
 		$page .= "Problème développé: ".$colonne[7]."<br>";
 		$page .= "Statut: ".$colonne[8]."<br>";
+		$page .= "Date d'ouverture: ".$colonne[9]."<br>";
+		$page .= "Date de fermeture: ".$colonne[10]."<br>";
 		$page .= "</div>";
 	}
 	$page .= "<form method='post' action='/projet_site/connexion/problemes/index.php'><input name='pseudo' type='hidden' value='Technicien'><input type='submit' value='Retourner aux tickets'></form>";

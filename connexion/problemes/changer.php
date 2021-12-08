@@ -13,7 +13,22 @@ if (password_verify($_SESSION["password"], "$2y$10\$jhPhoMionbSvkR7JyAGZrOH1nrmI
 	}
 	$sql = "UPDATE tickets SET statut = '".$statut."' WHERE id='".$id."'";
 	$result = mysqli_query($con,$sql);
-	 
+
+	if ($statut == "TERMINE") {
+		$today = getdate();
+		$date = $today["year"]."-".$today["mon"]."-".$today["mday"];
+		mysqli_query($con, "UPDATE tickets SET date_fin = '".$date."' WHERE id = '".$id."'");
+		
+		$data = mysqli_fetch_array(mysqli_query($con, "SELECT email, sujet FROM tickets WHERE id = '".$id."'"));
+		$email = $data[0];
+		$ticket = $data[1];
+		$headers = array(
+			'From' => 'cloture@odaame.org',
+			'X-Mailer' => 'PHP/' . phpversion()
+		);
+		mail($email, "Cloture de ticket", "Bonjour! Nous vous informons que votre ticket intitulé ".$ticket." vient d'être clôt. Cordialement, PHP.", $headers);
+	}
+
 	$page = "Votre changement a bien été pris en compte!";
 	$page .= "<form method='post' action='index.php'><input name='pseudo' type='hidden' value='Technicien'><input type='submit' value='Retour'></form>";
 

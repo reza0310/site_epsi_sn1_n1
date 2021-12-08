@@ -45,6 +45,7 @@ if ($pseudo == "Technicien" && password_verify($mdp, "$2y$10\$jhPhoMionbSvkR7JyA
 		$page .= "Intitulé: ".$colonne[5]."<br>";
 		$page .= "Problème développé: ".$colonne[7]."<br>";
 		$page .= "Statut: ".$colonne[8]."<br>";
+		$page .= "Date d'ouverture: ".$colonne[9]."<br>";
 		$page .= $form;
 		$page .= "</div>";
 	}
@@ -59,12 +60,14 @@ if ($pseudo == "Technicien" && password_verify($mdp, "$2y$10\$jhPhoMionbSvkR7JyA
 	echo ("Bienvenue client!<br>"); 
 	$page = "";
 	while ($colonne = mysqli_fetch_array($result)) {
+		$boule = false;
 		if ($colonne[8] == "OUVERT") {
 			$cls = 'ouvert';
 		} else if ($colonne[8] == "EN COURS") {
 			$cls = 'encours';
 		} else {
 			$cls = "ferme";
+			$boule = true;
 		}
 		$page .= "<div class='ticket $cls'>";
 		$page .= "Salle: ".$colonne[1]."<br>";
@@ -72,6 +75,10 @@ if ($pseudo == "Technicien" && password_verify($mdp, "$2y$10\$jhPhoMionbSvkR7JyA
 		$page .= "Intitulé: ".$colonne[5]."<br>";
 		$page .= "Problème développé: ".$colonne[7]."<br>";
 		$page .= "Statut: ".$colonne[8]."<br>";
+		$page .= "Date d'ouverture: ".$colonne[9]."<br>";
+		if ($boule) {
+			$page .= "Date de fermeture: ".$colonne[10]."<br>";
+		}
 		$page .= "</div>";
 	}
 	echo(str_replace("dos", "active", str_replace("%php%", $page, file_get_contents("header.html", true))));
