@@ -16,7 +16,22 @@
 
 .ticket {
 	border: 5px solid black;
-	margin: 1em 0px;
+	margin: 1em;
+	width: 25em;
+	display: inline-block;
+	line-height: 150%;
+}
+
+.ouvert {
+	background-color: #f00;
+}
+
+.encours {
+	background-color: #ff0;
+}
+
+.ferme {
+	background-color: #0f0;
 }
 
 .contacts {
@@ -66,6 +81,10 @@
 	border: 10px solid black;
 }
 
+.center {
+	margin: 0 auto;
+}
+
 #textes {
   text-align: initial;
   position: relative;
@@ -93,6 +112,7 @@ input[type=button], input[type=submit] {
   text-decoration: none;
   cursor: pointer;
   position: inherit;
+  margin: 2em auto;
 }
 
 input {

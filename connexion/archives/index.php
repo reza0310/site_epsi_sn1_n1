@@ -15,7 +15,7 @@ if (password_verify($_SESSION["password"], "$2y$10\$jhPhoMionbSvkR7JyAGZrOH1nrmI
 	echo ("Bienvenue technicien!<br>"); 
 	$page = "";
 	while ($colonne = mysqli_fetch_array($result)) {
-		$page .= "<div class='ticket'>";
+		$page .= "<div class='ticket ferme'>";
 		$page .= "Demandeur: ".$colonne[3]." ".$colonne[2]."<br>";
 		$page .= "Mail: ".$colonne[4]."<br>";
 		$page .= "Salle: ".$colonne[1]."<br>";

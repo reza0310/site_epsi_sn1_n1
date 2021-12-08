@@ -30,7 +30,14 @@ if ($pseudo == "Technicien" && password_verify($mdp, "$2y$10\$jhPhoMionbSvkR7JyA
 	echo ("Bienvenue technicien!<br>"); 
 	$page = "";
 	while ($colonne = mysqli_fetch_array($result)) {
-		$page .= "<div class='ticket'>";
+		if ($colonne[8] == "OUVERT") {
+			$cls = 'ouvert';
+			$form = "<form method='post' action='changer.php'><input name='ticket' type='hidden' value='".$colonne[0]."'><input name='statut' type='hidden' value='EN COURS'><input type='submit' value=\"S'en occuper\"></form>";
+		} else {
+			$cls = 'encours';
+			$form = "<form method='post' action='changer.php'><input name='ticket' type='hidden' value='".$colonne[0]."'><input name='statut' type='hidden' value='TERMINE'><input type='submit' value='Clore'></form>";
+		}
+		$page .= "<div class='ticket $cls'>";
 		$page .= "Demandeur: ".$colonne[3]." ".$colonne[2]."<br>";
 		$page .= "Mail: ".$colonne[4]."<br>";
 		$page .= "Salle: ".$colonne[1]."<br>";
@@ -38,11 +45,7 @@ if ($pseudo == "Technicien" && password_verify($mdp, "$2y$10\$jhPhoMionbSvkR7JyA
 		$page .= "Intitulé: ".$colonne[5]."<br>";
 		$page .= "Problème développé: ".$colonne[7]."<br>";
 		$page .= "Statut: ".$colonne[8]."<br>";
-		if ($colonne[8] == "OUVERT") {
-			$page .= "<form method='post' action='changer.php'><input name='ticket' type='hidden' value='".$colonne[0]."'><input name='statut' type='hidden' value='EN COURS'><input type='submit' value=\"S'en occuper\"></form>";
-		} else if ($colonne[8] == "EN COURS") {
-			$page .= "<form method='post' action='changer.php'><input name='ticket' type='hidden' value='".$colonne[0]."'><input name='statut' type='hidden' value='TERMINE'><input type='submit' value='Clore'></form>";
-		}
+		$page .= $form;
 		$page .= "</div>";
 	}
 	$page .= "<form method='post' action='/projet_site/connexion/archives/index.php'><input type='submit' value='Aller aux archives'></form>";
@@ -56,7 +59,14 @@ if ($pseudo == "Technicien" && password_verify($mdp, "$2y$10\$jhPhoMionbSvkR7JyA
 	echo ("Bienvenue client!<br>"); 
 	$page = "";
 	while ($colonne = mysqli_fetch_array($result)) {
-		$page .= "<div class='ticket'>";
+		if ($colonne[8] == "OUVERT") {
+			$cls = 'ouvert';
+		} else if ($colonne[8] == "EN COURS") {
+			$cls = 'encours';
+		} else {
+			$cls = "ferme";
+		}
+		$page .= "<div class='ticket $cls'>";
 		$page .= "Salle: ".$colonne[1]."<br>";
 		$page .= "Problème de: ".$colonne[6]."<br>";
 		$page .= "Intitulé: ".$colonne[5]."<br>";
